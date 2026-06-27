@@ -8,5 +8,5 @@ export async function fetchJSON<T>(url: string, opts?: RequestInit): Promise<T> 
     ...opts,
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-  return res.json();
+  return res.json() as Promise<T>;
 }
