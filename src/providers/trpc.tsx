@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
-import { createTRPCContext } from "@trpc/tanstack-react-query";
-import { type AppRouter } from "../../api/router";
+import { createTRPCReact } from "@trpc/react-query";
+import type { AppRouter } from "../../api/router";
 import superjson from "superjson";
 
-const trpc = createTRPCContext<AppRouter>();
+const trpc = createTRPCReact<AppRouter>();
 
 function getBaseUrl() {
   if (typeof window !== "undefined") return "";

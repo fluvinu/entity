@@ -2,7 +2,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 const Kbd = React.forwardRef<
-  HTMLKbdElement,
+  HTMLElement,
   React.HTMLAttributes<HTMLElement>
 >(({ className, ...props }, ref) => (
   <kbd

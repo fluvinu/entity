@@ -55,9 +55,9 @@ export default function EntityExplorer() {
               <Input placeholder="Search entities by name..." value={search} onChange={(e) => handleSearch(e.target.value)} className="pl-9" />
             </div>
             <Select value={kind} onValueChange={setKind}>
-              <SelectTrigger className="w-[180px]"><Layers className="h-4 w-4 mr-2" /><SelectValue placeholder="Filter by kind" /></SelectTrigger>
+              <SelectTrigger className="w-[180px]"><Layers className="h-4 w-4 mr-2" /><SelectValue /></SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Kinds</SelectItem>
+                <SelectItem value="all">All Kinds</SelectItem>
                 {stats?.byKind?.map((k) => <SelectItem key={k.kind} value={k.kind}>{k.kind} ({k.count})</SelectItem>)}
               </SelectContent>
             </Select>
