@@ -1,6 +1,6 @@
 import {
   mysqlTable,
-  serial,
+
   varchar,
   text,
   timestamp,
@@ -20,7 +20,7 @@ import {
 export const entities = mysqlTable(
   "entities",
   {
-    id: serial("id").primaryKey(),
+    id: int("id").autoincrement().primaryKey(),
     // Identity
     name: varchar("name", { length: 255 }).notNull(),
     kind: varchar("kind", { length: 100 }).notNull().default("entity"),
@@ -47,7 +47,7 @@ export type InsertEntity = typeof entities.$inferInsert;
 export const entityRelations = mysqlTable(
   "entity_relations",
   {
-    id: serial("id").primaryKey(),
+    id: int("id").autoincrement().primaryKey(),
     sourceId: bigint("source_id", { mode: "number", unsigned: true }).notNull(),
     relation: varchar("relation", { length: 50 }).notNull(),
     targetId: bigint("target_id", { mode: "number", unsigned: true }).notNull(),
@@ -68,7 +68,7 @@ export type InsertEntityRelation = typeof entityRelations.$inferInsert;
 export const entityBehaviors = mysqlTable(
   "entity_behaviors",
   {
-    id: serial("id").primaryKey(),
+    id: int("id").autoincrement().primaryKey(),
     entityId: bigint("entity_id", { mode: "number", unsigned: true }).notNull(),
     name: varchar("name", { length: 100 }).notNull(),
     behaviorType: varchar("behavior_type", { length: 50 }).notNull().default("action"),
@@ -90,7 +90,7 @@ export type InsertEntityBehavior = typeof entityBehaviors.$inferInsert;
 export const entityRoles = mysqlTable(
   "entity_roles",
   {
-    id: serial("id").primaryKey(),
+    id: int("id").autoincrement().primaryKey(),
     entityId: bigint("entity_id", { mode: "number", unsigned: true }).notNull(),
     role: mysqlEnum("role", [
       "UI",
@@ -125,7 +125,7 @@ export type InsertEntityRole = typeof entityRoles.$inferInsert;
 export const executionLogs = mysqlTable(
   "execution_logs",
   {
-    id: serial("id").primaryKey(),
+    id: int("id").autoincrement().primaryKey(),
     entityId: bigint("entity_id", { mode: "number", unsigned: true }).notNull(),
     behaviorId: bigint("behavior_id", { mode: "number", unsigned: true }),
     executionType: varchar("execution_type", { length: 50 }).notNull().default("manual"),
@@ -150,7 +150,7 @@ export type InsertExecutionLog = typeof executionLogs.$inferInsert;
 export const systemEvents = mysqlTable(
   "system_events",
   {
-    id: serial("id").primaryKey(),
+    id: int("id").autoincrement().primaryKey(),
     eventType: varchar("event_type", { length: 50 }).notNull(),
     entityId: bigint("entity_id", { mode: "number", unsigned: true }),
     payload: json("payload").$type<Record<string, unknown>>(),
