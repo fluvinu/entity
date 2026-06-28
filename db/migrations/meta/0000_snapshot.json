@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "22f99189-d99d-4a91-9e25-a827787eb36e",
+  "id": "9b07d281-560f-4f00-ba9f-a50698a058eb",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "entities": {
