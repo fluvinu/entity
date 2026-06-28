@@ -103,8 +103,6 @@ export async function createEntity(data: InsertEntity) {
       properties: data.properties ?? {},
       state: data.state ?? {},
       metadata: data.metadata ?? {},
-      createdAt: new Date(),
-      updatedAt: new Date(),
     })
     .$returningId();
 
@@ -116,7 +114,6 @@ export async function updateEntity(id: number, data: Partial<InsertEntity>) {
     .update(entities)
     .set({
       ...data,
-      updatedAt: new Date(),
     })
     .where(eq(entities.id, id));
 
