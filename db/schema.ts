@@ -31,7 +31,7 @@ export const entities = mysqlTable(
     metadata: json("metadata").$type<Record<string, unknown>>(),
     // Timestamps
     createdAt: timestamp("created_at").defaultNow().notNull(),
-    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
   },
   (table) => ({
     kindIdx: index("kind_idx").on(table.kind),
@@ -75,7 +75,7 @@ export const entityBehaviors = mysqlTable(
     config: json("config").$type<Record<string, unknown>>(),
     isActive: int("is_active").default(1),
     createdAt: timestamp("created_at").defaultNow().notNull(),
-    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
   },
   (table) => ({
     entityIdIdx: index("behavior_entity_idx").on(table.entityId),
