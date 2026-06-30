@@ -7,12 +7,14 @@ import EntityDetail from "./pages/EntityDetail";
 import GraphViewer from "./pages/GraphViewer";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import TasksPage from "./pages/TasksPage";
 
 export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/tasks" element={<TasksPage />} />
         <Route path="/entities" element={<EntityExplorer />} />
         <Route path="/entities/new" element={<EntityEditor />} />
         <Route path="/entities/:id" element={<EntityDetail />} />

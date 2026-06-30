@@ -1,11 +1,12 @@
 import { Outlet, NavLink, useLocation } from "react-router";
 import { useState } from "react";
-import { Box, Network, Settings, ChevronLeft, ChevronRight, Hexagon, Plus, Activity } from "lucide-react";
+import { Box, Network, Settings, ChevronLeft, ChevronRight, Hexagon, Plus, Activity, CheckSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const navItems = [
   { path: "/", label: "Dashboard", icon: Activity },
+  { path: "/tasks", label: "Tasks", icon: CheckSquare },
   { path: "/entities", label: "Entity Explorer", icon: Box },
   { path: "/entities/new", label: "New Entity", icon: Plus },
   { path: "/graph", label: "Graph Viewer", icon: Network },
